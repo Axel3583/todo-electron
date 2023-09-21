@@ -1,8 +1,0 @@
-:host todo-list {
-    display: block;
-    background: black;
-    width: 100vw;
-    max-height: 100vh;
-    overflow: hidden;
-    overflow-y: auto;
-}
