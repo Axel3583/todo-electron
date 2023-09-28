@@ -1,4 +1,4 @@
-var Datastore = require("nedb"),
+const Datastore = require("nedb"),
   db = new Datastore({ filename: "src/database/datafile.db ", autoload: true });
 class TaskService {
   // Déclaration de todoListItem dans le constructeur
@@ -73,30 +73,6 @@ class TaskService {
     this.todoListItem.appendChild(listItem);
   }
 
-  // Fonction pour ajouter une tâche
-  // addTask(item) {
-  //   axios
-  //     .post("http://localhost:4000/todo", { item })
-  //     .then((response) => {
-  //       if (response.status === 201) {
-  //         // La tâche a été créée avec succès, mettez à jour l'interface utilisateur
-  //         return response.data;
-  //       } else {
-  //         throw new Error("Failed to create task");
-  //       }
-  //     })
-  //     .then((data) => {
-  //       // Mettez à jour l'interface utilisateur en conséquence
-  //       console.log(data, "okkkkkk");
-  //       this.appendTaskToList(data); // Utilisation de this.appendTaskToList
-  //     })
-  //     .catch((error) => {
-  //       // Gérez les erreurs ici, par exemple, affichez un message d'erreur à l'utilisateur
-  //       console.error(error);
-  //     });
-  // }
-
-  // Méthode pour mettre à jour l'état `completed` d'une tâche dans la base de données
   // Méthode pour mettre à jour l'état `completed` d'une tâche dans la base de données
   updateTaskCompletedState(taskId, completed) {
     db.findOne({ _id: taskId }, (err, oldTask) => {
