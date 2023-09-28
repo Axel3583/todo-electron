@@ -16,7 +16,7 @@ function createWindow() {
   win.webContents.openDevTools();
 
   ipc.on("Add_Data", (e, data) => {
-    var Datastore = require("nedb"),
+    const Datastore = require("nedb"),
       db = new Datastore({
         filename: "src/database/datafile.db ",
         autoload: true,
