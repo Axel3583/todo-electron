@@ -5,11 +5,17 @@
   "main": "src/main.js",
   "scripts": {
     "start": "node_modules/electron/cli.js .",
+    "watch": "nodemon --exec node_modules/electron/cli.js .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "electron": "^26.2.0"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "nedb": "^1.8.0",
+    "nodemon": "^3.0.1"
   }
 }
