@@ -24,11 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       ipc.send("Add_Data", data);
-
-      // if (item) {
-      //   taskService.addTask(item);
-      //   todoListInput.value = "";
-      // }
     });
 
   // Appelez la fonction pour lister les tâches au chargement de la page

@@ -106,9 +106,7 @@ body {
 .list-wrapper ul li .form-check label:hover {
   cursor: pointer;
 }
-.list-wrapper input[type="checkbox"] {
-  margin-right: 15px;
-}
+
 .list-wrapper .remove {
   cursor: pointer;
   font-size: 1.438rem;
@@ -123,11 +121,7 @@ body {
   text-decoration: line-through;
   text-decoration-color: #3da5f4;
 }
-.list-wrapper ul li .form-check {
-  max-width: 90%;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
+
 .list-wrapper ul li .form-check,
 .list-wrapper ul li .form-check .form-check-label,
 .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user .u-name,
@@ -218,38 +212,12 @@ input[type="checkbox"] {
   max-width: 100%;
   white-space: nowrap;
 }
-.form-check .form-check-label input[type="checkbox"] + .input-helper:before {
-  content: "";
-  width: 18px;
-  height: 18px;
-  border-radius: 2px;
-  border: solid #405189;
-  border-width: 2px;
-  -webkit-transition: all;
-  -moz-transition: all;
-  -ms-transition: all;
-  -o-transition: all;
-  transition: all;
-  transition-duration: 0s;
-  -webkit-transition-duration: 250ms;
-  transition-duration: 250ms;
-}
-.form-check .form-check-label input[type="checkbox"] + .input-helper:before,
-.form-check .form-check-label input[type="checkbox"] + .input-helper:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 .form-check .form-check-label input[type="checkbox"] + .input-helper:after {
   -webkit-transition: all;
   -moz-transition: all;
   -ms-transition: all;
   -o-transition: all;
   transition: all;
-  transition-duration: 0s;
-  -webkit-transition-duration: 250ms;
-  transition-duration: 250ms;
-  font-family: Material Design Icons;
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transform: scale(0);
@@ -286,12 +254,10 @@ input[type="checkbox"] {
   -ms-transition: all;
   -o-transition: all;
   transition: all;
-  transition-duration: 0s;
   -webkit-transition-duration: 250ms;
   transition-duration: 250ms;
 }
 .form-check .form-check-label input[type="checkbox"] + .input-helper:after {
-  font-family: FontAwesome;
   content: "\f095";
   display: inline-block;
   padding-right: 3px;
@@ -323,9 +289,12 @@ input[type="checkbox"] {
   font-size: 0.9375rem;
   padding: 0.4rem 0;
   border-bottom: 1px solid #f3f3f3;
+  padding: 0;
+  text-align: left;
+  list-style: none;
+  margin-bottom: 0;
 }
 .mdi:before {
-  font-family: FontAwesome;
   content: "\f00d";
   display: inline-block;
   padding-right: 3px;
@@ -333,12 +302,7 @@ input[type="checkbox"] {
   font-size: 0.756em;
   color: #405189;
 }
-.list-wrapper ul {
-  padding: 0;
-  text-align: left;
-  list-style: none;
-  margin-bottom: 0;
-}
+
 .flex-column-reverse {
   flex-direction: column-reverse !important;
 }
