@@ -1,19 +1,34 @@
+const { ipcRenderer } = require("electron");
+const ipc = ipcRenderer;
+
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
   const taskService = new TaskService(); // Créez une instance de TaskService
-
   const todoListInput = document.querySelector(".todo-list-input");
 
-  document.querySelector(".todo-list-add-btn").addEventListener("click", (event) => {
+  document
+    .querySelector(".todo-list-add-btn")
+    .addEventListener("click", (event) => {
       event.preventDefault();
-      
-      const item = todoListInput.value;
 
-      if (item) {
-        taskService.addTask(item);
-        todoListInput.value = ""; 
-      }
+      const text = todoListInput.value;
+      const date = new Date();
+
+      const data = {
+        text: text,
+        completed: false,
+        infos: { name: "nedb" },
+        date: date.toLocaleDateString(),
+        time: date.toLocaleTimeString(),
+      };
+
+      ipc.send("Add_Data", data);
+
+      // if (item) {
+      //   taskService.addTask(item);
+      //   todoListInput.value = "";
+      // }
     });
 
   // Appelez la fonction pour lister les tâches au chargement de la page
