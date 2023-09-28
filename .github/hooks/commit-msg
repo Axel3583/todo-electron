@@ -1,0 +1,41 @@
+const { readFileSync } = require("fs");
+
+const commitFile = process.argv(2);
+const commitMSG = readFileSync(commitFile, "utf-8");
+
+if (commitMSG.startsWith("Merge branch")) {
+  process.exit(0);
+}
+
+const featRegex = /^feat(([a-zA-Z0-9]+))?!?: .+/;
+const fixRegex = /^fix(([a-zA-Z0-9]+))?!?: .+/;
+const breakingChange = /^BREAKING( |-)CHANGE: .+/;
+const validTypes = "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore)(([a-zA-Z0-9]+))?!?: .+";
+
+if (!validTypes.test(commitMSG)) {
+  console.error(
+    "Error: commit message must be valid <type>(<context>): message"
+  );
+  process.exit(1);
+}
+
+// le seul moment ou on va avoir le majeur qui évolue
+if (commitMSG.includes("BREAK")) {
+  if (breakingChange.test(commitMSG)) {
+    console.log("Commit with breaking change detected");
+  } else {
+    console.log(
+      "Error: invalid 'BREAKING CHANGE:' or 'BREAKING CHANGE:' in the commit message"
+    );
+    process.exit(1);
+  }
+}
+
+if (featRegex.test(commitMSG) || fixRegex.test(commitMSG)) {
+  console.log("Commit accepted");
+} else {
+  console.log("");
+  process.exit(1);
+}
+
+process.exit(0);
